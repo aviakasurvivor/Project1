@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pd:ProcessDefinition xmlns:BW="java://com.tibco.pe.core.JavaCustomXPATHFunctions" xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tib="http://www.tibco.com/bw/xslt/custom-functions" xmlns:pfx="http://www.tibco.com/schemas/Training/Resources/Schema.xsd">
+    <xsd:import namespace="http://www.tibco.com/schemas/Training/Resources/Schema.xsd" schemaLocation="/Resources/Schema.xsd"/>
+    <pd:name>XPath/XPath.process</pd:name>
+    <pd:startName>Start</pd:startName>
+    <pd:startX>52</pd:startX>
+    <pd:startY>60</pd:startY>
+    <pd:returnBindings/>
+    <pd:endName>End</pd:endName>
+    <pd:endX>603</pd:endX>
+    <pd:endY>58</pd:endY>
+    <pd:errorSchemas/>
+    <pd:processVariables/>
+    <pd:targetNamespace>http://xmlns.example.com/1418795531089</pd:targetNamespace>
+    <pd:activity name="Map Data">
+        <pd:type>com.tibco.plugin.mapper.MapperActivity</pd:type>
+        <pd:resourceType>ae.activities.MapperActivity</pd:resourceType>
+        <pd:x>191</pd:x>
+        <pd:y>59</pd:y>
+        <config>
+            <element>
+                <xsd:element name="root">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element ref="pfx:root"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </element>
+        </config>
+        <pd:inputBindings>
+            <root>
+                <pfx:root>
+                    <pfx:Customers>
+                        <xsl:for-each select="1">
+                            <pfx:Customer>
+                                <pfx:CustomerName>
+                                    <xsl:attribute name="FirstName">
+                                        <xsl:value-of select="'mn'"/>
+                                    </xsl:attribute>
+                                    <xsl:attribute name="LastName">
+                                        <xsl:value-of select="'mn'"/>
+                                    </xsl:attribute>
+                                    <xsl:value-of select="'po'"/>
+                                </pfx:CustomerName>
+                                <pfx:CustomerGroup>
+                                    <pfx:Business>
+                                        <xsl:value-of select="''"/>
+                                    </pfx:Business>
+                                </pfx:CustomerGroup>
+                                <pfx:Attributes>
+                                    <xsl:for-each select="tib:tokenize('pawan1,pawan2,pawan3,pawan4,pawan5,pawan6,pawan7', ',')">
+                                        <pfx:attribute>
+                                            <pfx:name>
+                                                <xsl:value-of select="'Name'"/>
+                                            </pfx:name>
+                                            <pfx:value>
+                                                <xsl:value-of select="current()"/>
+                                            </pfx:value>
+                                        </pfx:attribute>
+                                    </xsl:for-each>
+                                </pfx:Attributes>
+                            </pfx:Customer>
+                        </xsl:for-each>
+                    </pfx:Customers>
+                </pfx:root>
+            </root>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:activity name="Map-Data-1">
+        <pd:type>com.tibco.plugin.mapper.MapperActivity</pd:type>
+        <pd:resourceType>ae.activities.MapperActivity</pd:resourceType>
+        <pd:x>353</pd:x>
+        <pd:y>60</pd:y>
+        <config>
+            <element>
+                <xsd:element name="root">
+                    <xsd:complexType>
+                        <xsd:sequence>
+                            <xsd:element name="param" type="xsd:string" minOccurs="0"/>
+                        </xsd:sequence>
+                    </xsd:complexType>
+                </xsd:element>
+            </element>
+        </config>
+        <pd:inputBindings>
+            <root>
+                <xsl:if test="for $var in $Map-Data/root/pfx:root/pfx:Customers/pfx:Customer return $Map-Data/root/pfx:root/pfx:Customers/pfx:Customer/pfx:CustomerName/@FirstName">
+                    <param>
+                        <xsl:value-of select="for $var in $Map-Data/root/pfx:root/pfx:Customers/pfx:Customer return $Map-Data/root/pfx:root/pfx:Customers/pfx:Customer/pfx:CustomerName/@FirstName"/>
+                    </param>
+                </xsl:if>
+            </root>
+        </pd:inputBindings>
+    </pd:activity>
+    <pd:transition>
+        <pd:from>Start</pd:from>
+        <pd:to>Map Data</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Map Data</pd:from>
+        <pd:to>Map-Data-1</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+    <pd:transition>
+        <pd:from>Map-Data-1</pd:from>
+        <pd:to>End</pd:to>
+        <pd:lineType>Default</pd:lineType>
+        <pd:lineColor>-16777216</pd:lineColor>
+        <pd:conditionType>always</pd:conditionType>
+    </pd:transition>
+</pd:ProcessDefinition>

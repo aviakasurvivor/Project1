@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Repository:repository xmlns:Repository="http://www.tibco.com/xmlns/repo/types/2002">
+    <identity>
+        <objectType>url</objectType>
+        <name>Identity</name>
+        <designer/>
+        <url>file://D:/Work/SIS/mqClient-1.0-windows64/mqClient-1.0-windows64/ssl/ladbrokeslfp.key.jks</url>
+        <fileType>JKS</fileType>
+        <passPhrase>#!sTwzdwz7lmWtvTK1ucAw1yqqlcvFfejNaMYbNmBUPU//EBadF9XgNQ==</passPhrase>
+    </identity>
+</Repository:repository>
