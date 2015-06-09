@@ -21,14 +21,14 @@
         </ConnectionAttributes>
         <UseXACF>false</UseXACF>
         <useSsl>true</useSsl>
+        <AdmFactorySslPassword>#!7KRZH0ZJ0fbA/0ZBQIOUBmPWxQ9rdwXg2sIp3qJQ60HBeo9vFZiCog==</AdmFactorySslPassword>
         <ns0:ssl xmlns:ns0="http://www.tibco.com/xmlns/aemeta/services/2002">
             <ns0:trace>false</ns0:trace>
             <ns0:debugTrace>false</ns0:debugTrace>
             <ns0:verifyHostName>false</ns0:verifyHostName>
             <ns0:strongCipherSuitesOnly>false</ns0:strongCipherSuitesOnly>
-            <ns0:cert isRef="true">/SIS/TrustedCertificate/.folder</ns0:cert>
-            <ns0:identity isRef="true">/SIS/Identity.id</ns0:identity>
+            <ns0:cert isRef="true">/MQ/SIS/TrustedCertificate/.folder</ns0:cert>
+            <ns0:identity isRef="true">/MQ/SIS/Identity.id</ns0:identity>
         </ns0:ssl>
-        <AdmFactorySslPassword>#!7KRZH0ZJ0fbA/0ZBQIOUBmPWxQ9rdwXg2sIp3qJQ60HBeo9vFZiCog==</AdmFactorySslPassword>
     </config>
 </BWSharedResource>

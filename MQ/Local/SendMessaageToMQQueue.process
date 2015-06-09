@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pd:ProcessDefinition xmlns:pd="http://xmlns.tibco.com/bw/process/2003" xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:ns="http://www.tibco.com/namespaces/tnt/plugins/jms">
-    <pd:name>Local/SendMessaageToMQQueue.process</pd:name>
+    <pd:name>MQ/Local/SendMessaageToMQQueue.process</pd:name>
     <pd:startName>Start</pd:startName>
     <pd:startX>150</pd:startX>
     <pd:startY>64</pd:startY>
@@ -29,7 +29,7 @@
                 <JMSExpiration>0</JMSExpiration>
                 <JMSPriority>4</JMSPriority>
             </ConfigurableHeaders>
-            <ConnectionReference>/Local/JMS Connection.sharedjmscon</ConnectionReference>
+            <ConnectionReference>/MQ/Local/JMS Connection.sharedjmscon</ConnectionReference>
         </config>
         <pd:inputBindings>
             <ns:ActivityInput>
